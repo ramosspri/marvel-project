@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import type { NextPage } from 'next'
-import styles from '../styles/Home.module.css'
+import React, { useEffect } from 'react';
+import type { NextPage } from 'next';
+import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
   /* useEffect(() => {
@@ -12,10 +12,10 @@ const Home: NextPage = () => {
   return (
     <>
       <div>
-        <p>Hello from Home!</p>
+        <p>Hello World!</p>
       </div>
     </>
-);
-}
+  );
+};
 
-export default Home
+export default Home;
