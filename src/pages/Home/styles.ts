@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
   background-image: -webkit-linear-gradient(
     210deg,
     var(--gray1) 65%,
@@ -9,34 +12,65 @@ export const Container = styled.div`
   );
   color: var(--red);
 `;
+
+export const DivImg = styled.div`
+  display: flex;
+  height: 100%;
+  min-width: 30%;
+`;
+
+export const DivInfos = styled.div`
+  width: 70%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const DivAlign = styled.div`
+  width: 80%;
+  height: 80%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 30px;
+`;
+
 export const MarvelLogo = styled.img`
-  position: absolute;
-  float: right;
+  width: 70%;
 `;
 
 export const Title = styled.p`
   color: var(--white);
   font-size: 5rem;
   font-family: Marvel;
-  float: right;
 `;
+
 export const Subtitle = styled.p`
   color: var(--white);
   font-size: 2.5rem;
   font-family: Syne;
-  float: right;
 `;
 
 export const HomeButton = styled.button`
-  position: absolute;
   width: 10rem;
+  padding: 2.5rem 0;
   background-color: var(--red);
   border-radius: 0.5rem;
-  float: right;
   font-family: Marvel;
+
+  font-size: 3rem;
+
+  transition: 0.4s;
+
+  :hover {
+    background-color: cyan;
+  }
 `;
 
 export const SvgWrapper = styled.img`
-  float: left;
-  position: absolute;
+  width: 70%;
 `;
