@@ -1,20 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import type { NextPage } from 'next';
-import styles from '../styles/Home.module.css';
+import {
+  Container,
+  HomeButton,
+  SvgWrapper,
+  MarvelLogo,
+  Title,
+  Subtitle,
+} from './styles';
+import iron from '../../../public/images/iron.svg';
+import Marvel_Logo from '../../../public/images/Marvel_Logo.svg';
 
 const Home: NextPage = () => {
-  /* useEffect(() => {
-    axios.get(`http://gateway.marvel.com/v1/public/characters?ts=${time}&apikey=${publicKey}&hash=${hash}`)
-    .then(response => console.log(response.data.data))
-    .catch(err => console.log(err))
-  }, []); */
-
   return (
-    <>
-      <div>
-        <p>Hello World!</p>
-      </div>
-    </>
+    <Container>
+      <img src="/images/ironMen.svg" alt="" />
+      <MarvelLogo src={Marvel_Logo} />
+      <Title>HEROES LIST</Title>
+      <Subtitle>Welcome to our Multiverse of Madness</Subtitle>
+      <HomeButton>HEROES</HomeButton>
+    </Container>
   );
 };
 
