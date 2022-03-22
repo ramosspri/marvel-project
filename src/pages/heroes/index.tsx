@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
 import type { NextPage } from 'next';
+import Image from 'next/image';
+import { Container, CardList, Card } from '../heroes/styles';
+import GlobalStyles from '../../styles/GlobalStyles';
 
 interface ResponseData {
   id: string;
@@ -22,12 +25,29 @@ const Heroes: NextPage = () => {
       .get('/characters')
       .then((response) => {
         setCharacters(response.data.data.results);
-        console.log('Segundo log', characters);
       })
       .catch((err) => console.log(err));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <div>Heroes here!</div>;
+  return (
+    <>
+      <GlobalStyles />
+      <Container>
+        <CardList>
+          {characters.map((characters) => {
+            return (
+              <Card key={characters.id}>
+                <div id="img" />
+                <h2>{characters.name}</h2>
+                <p>#{characters.id}</p>
+              </Card>
+            );
+          })}
+        </CardList>
+      </Container>
+    </>
+  );
 };
 
 export default Heroes;
