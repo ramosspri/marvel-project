@@ -47,9 +47,7 @@ html, body, #root {
     --white2: #FFFFFF;
 
   }
-/* .HomeGradient {
-  background-image: -webkit-linear-gradient(210deg, var(--gray1) 65%, var(--red) 35%);
-} */
+
   @font-face {
     font-family: "Marvel";
     src: local("Marvel"),
