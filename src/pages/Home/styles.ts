@@ -10,7 +10,7 @@ export const Container = styled.div`
     var(--gray1) 65%,
     var(--red) 35%
   );
-  color: var(--gray31);
+  color: var(--gray3);
 `;
 
 export const DivImg = styled.div`
