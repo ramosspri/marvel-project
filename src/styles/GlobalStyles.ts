@@ -31,7 +31,6 @@ button {
 
 html, body, #root {
     background-color: var(--gray1);
-    font-family: 'Marvel', 'Syne', 'Darker Grotesque';
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
   }
@@ -48,11 +47,18 @@ html, body, #root {
 
   }
 
-  @font-face {
-    font-family: "Marvel";
-    src: local("Marvel"),
-     url("../../public/Marvel Regular.ttf") format("truetype");
-    font-weight: bold;
-    }
+@font-face {
+  font-family: "Marvel";
+  src: local("Marvel"),
+  url("../../public/Marvel Regular.ttf");
+  font-weight: bold;
+  }
 
+@font-face {
+  font-family: 'Syne';
+  src: url('../../public/Syne-VariableFont_wght.ttf');
+  font-style: medium;
+  font-weight: normal;
+  font-display: swap;
+}
 `;
