@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
 import type { NextPage } from 'next';
-import { Container, CardList } from '../heroes/styles';
+import { Container } from '../heroes/styles';
 import Card from '../../components/Card';
+import GlobalStyles from '../../styles/GlobalStyles';
 
 interface ResponseData {
-  id: string | any;
+  id: string;
   name: string;
   stories: string;
   comics: string;
@@ -26,20 +27,14 @@ const Heroes: NextPage = () => {
         setCharacters(response.data.data.results);
       })
       .catch((err) => console.log(err));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
+      <GlobalStyles />
       <Container>
         {characters.map((characters) => {
-          return (
-            <Card
-              key={characters.id}
-              id={characters?.id}
-              name={characters?.name}
-            />
-          );
+          return <Card key={characters.id} {...characters} />;
         })}
       </Container>
     </>
