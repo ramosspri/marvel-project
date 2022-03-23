@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+/* 
 interface ThumbnailData {
   thumbnail: {
     path: string;
@@ -7,35 +8,33 @@ interface ThumbnailData {
   };
 }
 
+const urlImg = (props: ThumbnailData) =>
+  `${props.thumbnail.path}.${props.thumbnail.extension}`; */
+
 export const Container = styled.main`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 70%;
   height: 100%;
-`;
-
-export const CardList = styled.div``;
-
-export const Card = styled.div`
-  background: var(--gray2);
-  height: 150px;
-  width: 150px;
-  margin: 10px;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 2px 2px 10px 1 rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  background-color: yellow;
 
   h2 {
     padding: 5px;
     text-align: center;
     font-size: medium;
-    color: var(--white2);
+    color: var(--red-marvel);
+    font-family: 'Marvel', sans-serif;
+    font-style: normal;
+    font-weight: 800;
   }
 
   p {
     padding: 5px;
     text-align: center;
     font-size: small;
-    color: var(--white2);
+    color: var(--black1);
   }
 `;
+
+export const CardList = styled.div``;

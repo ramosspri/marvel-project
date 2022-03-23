@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
 import type { NextPage } from 'next';
-import Image from 'next/image';
-import { Container, CardList, Card } from '../heroes/styles';
-import GlobalStyles from '../../styles/GlobalStyles';
+import { Container, CardList } from '../heroes/styles';
+import Card from '../../components/Card';
 
 interface ResponseData {
-  id: string;
+  id: string | any;
   name: string;
   stories: string;
   comics: string;
@@ -32,19 +31,16 @@ const Heroes: NextPage = () => {
 
   return (
     <>
-      <GlobalStyles />
       <Container>
-        <CardList>
-          {characters.map((characters) => {
-            return (
-              <Card key={characters.id}>
-                <div id="img" />
-                <h2>{characters.name}</h2>
-                <p>#{characters.id}</p>
-              </Card>
-            );
-          })}
-        </CardList>
+        {characters.map((characters) => {
+          return (
+            <Card
+              key={characters.id}
+              id={characters?.id}
+              name={characters?.name}
+            />
+          );
+        })}
       </Container>
     </>
   );
