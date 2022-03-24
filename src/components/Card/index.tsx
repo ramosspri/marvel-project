@@ -1,5 +1,6 @@
 import React from 'react';
 import { CardHeroes } from '../Card/styles';
+import Image from 'next/image';
 
 interface ResponseData {
   id: string;
@@ -16,7 +17,13 @@ interface ResponseData {
 const Card = (props: ResponseData) => {
   return (
     <CardHeroes>
-      <div id="img" />
+      <img
+        id="img"
+        src="/images/Marvel_Logo.svg"
+        alt="Heroe picture"
+        width={40}
+        height={40}
+      />
       <h2>{props.name}</h2>
       <p>#{props.id}</p>
     </CardHeroes>

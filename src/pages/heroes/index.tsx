@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import api from '../../services/api';
 import type { NextPage } from 'next';
-import { Container } from '../heroes/styles';
+import {
+  Container,
+  ButtonMore,
+  HeaderTest,
+  ContainerMain,
+} from '../heroes/styles';
 import Card from '../../components/Card';
-import GlobalStyles from '../../styles/GlobalStyles';
-
 interface ResponseData {
   id: string;
   name: string;
@@ -29,15 +32,39 @@ const Heroes: NextPage = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleMore = useCallback(async () => {
+    try {
+      const offset = characters.length;
+      const response = await api.get(`characters`, {
+        params: {
+          offset,
+        },
+      });
+
+      setCharacters([...characters, ...response.data.data.results]);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [characters]);
+
   return (
-    <>
-      <GlobalStyles />
-      <Container>
-        {characters.map((characters) => {
-          return <Card key={characters.id} {...characters} />;
-        })}
-      </Container>
-    </>
+    <ContainerMain>
+      {/* <HeaderTest></HeaderTest> */}
+      <div className="paodequeijo">
+        <Container>
+          {characters.map((characters) => {
+            return (
+              <Card
+                key={characters.id}
+                {...characters}
+                thumbnail={characters.thumbnail}
+              />
+            );
+          })}
+          <ButtonMore onClick={handleMore}>Load</ButtonMore>
+        </Container>
+      </div>
+    </ContainerMain>
   );
 };
 
