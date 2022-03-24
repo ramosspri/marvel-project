@@ -49,7 +49,7 @@ const Heroes: NextPage = () => {
 
   return (
     <ContainerMain>
-      {/* <HeaderTest></HeaderTest> */}
+      <HeaderTest></HeaderTest>
       <div className="paodequeijo">
         <Container>
           {characters.map((characters) => {
@@ -61,8 +61,8 @@ const Heroes: NextPage = () => {
               />
             );
           })}
-          <ButtonMore onClick={handleMore}>Load</ButtonMore>
         </Container>
+        <ButtonMore onClick={handleMore}>Load</ButtonMore>
       </div>
     </ContainerMain>
   );

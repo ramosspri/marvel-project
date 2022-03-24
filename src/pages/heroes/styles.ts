@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  /* flex-direction: column; */
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
-  /* justify-content: center; */
-  /* margin: 10px 0; */
+  display: grid;
+  max-width: 98%;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, auto));
 `;
 
 export const ButtonMore = styled.button`
@@ -41,10 +38,12 @@ export const ContainerMain = styled.main`
   height: 100vh;
   display: flex;
   flex-direction: row;
+  gap: 20px;
+  justify-content: center;
 
   .paodequeijo {
     display: flex;
     flex-direction: column;
-    max-width: 90%;
+    width: 96vw;
   }
 `;
