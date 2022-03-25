@@ -16,6 +16,10 @@ export default createGlobalStyle`
     html {
       font-size: 93.75%;
     }
+html, body, #root {
+    background-color: var(--gray1);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
   }
 
   @media (max-width: 720px) {
@@ -46,11 +50,20 @@ export default createGlobalStyle`
       --white2: #FFFFFF;
 
     }
+    
+  @font-face {
+    font-family: "Marvel";
+    src: local("Marvel"),
+    url("../../public/Marvel Regular.ttf");
+    font-weight: bold;
+    }
 
-    @font-face {
-      font-family: "Marvel";
-      src: local("Marvel"),
-      url("../../public/Marvel Regular.ttf") format("truetype");
-      font-weight: bold;
-      }
+  @font-face {
+    font-family: 'Syne';
+    src: url('../../public/Syne-VariableFont_wght.ttf');
+    font-style: medium;
+    font-weight: normal;
+    font-display: swap;
+  }
+}
 `;
