@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import api from '../../services/api';
 import type { NextPage } from 'next';
-import { Container, ButtonMore, ContainerMain } from '../heroes/styles';
 import Card from '../../components/Card';
+import { ContainerMain, Container, ButtonMore } from './styles';
 interface ResponseData {
   id: string;
   name: string;
