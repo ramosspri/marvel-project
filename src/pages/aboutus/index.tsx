@@ -9,12 +9,24 @@ interface ResponseData {
 }
 
 const AboutUs: NextPage = () => {
-  const [users, setUsers] = useState<ResponseData>();
+  const [users, setUsers] = useState<ResponseData[]>([
+    {
+      id: '',
+      name: '',
+      avatar_url: '',
+    },
+  ]);
 
   useEffect(() => {
     apiGithub
       .get('/users/yanstivaletti')
-      .then((response) => setUsers(response.data))
+      .then((response) =>
+        setUsers({
+          id: response.data.id,
+          name: response.data.name,
+          avatar_url: response.data.avatar_url,
+        })
+      )
       .catch((error) => {
         console.error('Erro!' + error);
       });
@@ -23,7 +35,16 @@ const AboutUs: NextPage = () => {
   useEffect(() => {
     apiGithub
       .get('/users/ramosspri')
-      .then((response) => setUsers(...users, ...response.data))
+      .then((response) =>
+        setUsers([
+          ...users,
+          {
+            id: response.data.id,
+            name: response.data.name,
+            avatar_url: response.data.avatar_url,
+          },
+        ])
+      )
       .catch((error) => {
         console.error('Erro!' + error);
       });
