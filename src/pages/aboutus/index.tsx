@@ -9,23 +9,20 @@ interface ResponseData {
 }
 
 const AboutUs: NextPage = () => {
-  const [users, setUsers] = useState<ResponseData[]>([
-    {
-      id: '',
-      name: '',
-      avatar_url: '',
-    },
-  ]);
+  const [users, setUsers] = useState<ResponseData[]>([]);
 
   useEffect(() => {
     apiGithub
       .get('/users/yanstivaletti')
       .then((response) =>
-        setUsers({
-          id: response.data.id,
-          name: response.data.name,
-          avatar_url: response.data.avatar_url,
-        })
+        setUsers([
+          ...users,
+          {
+            id: response.data.id,
+            name: response.data.name,
+            avatar_url: response.data.avatar_url,
+          },
+        ])
       )
       .catch((error) => {
         console.error('Erro!' + error);
@@ -48,7 +45,7 @@ const AboutUs: NextPage = () => {
       .catch((error) => {
         console.error('Erro!' + error);
       });
-  }, []);
+  }, [users.length === 0]);
 
   const handleTest = () => {
     console.log(users);
@@ -57,18 +54,12 @@ const AboutUs: NextPage = () => {
   return (
     <div>
       <p>Hello World</p>
-      <button onClick={handleTest}>Teste</button>
-      {/* {users?.map((users) => {
-        return (
-          <p key={users.id} {...users}>
-            {users.name}
-          </p>
-        );
-      })} */}
+      {/* <button onClick={handleTest}>Teste</button> */}
+      {users?.map((users) => {
+        return <p key={users.id}>{users.name}</p>;
+      })}
     </div>
   );
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
 };
 
 export default AboutUs;
