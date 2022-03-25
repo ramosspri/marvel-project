@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { CardHeroes } from '../Card/styles';
-import Image from 'next/image';
+import { CardHeroes, DivImg } from '../Card/styles';
 
 interface ResponseData {
   id: string;
@@ -17,13 +17,14 @@ interface ResponseData {
 const Card = (props: ResponseData) => {
   return (
     <CardHeroes>
-      <img
-        id="img"
-        src="/images/Marvel_Logo.svg"
-        alt="Heroe picture"
-        width={40}
-        height={40}
-      />
+      <DivImg>
+        <img
+          src={props.thumbnail.path + '.' + props.thumbnail.extension}
+          alt="Heroes pictures"
+          width={80}
+          height={80}
+        />
+      </DivImg>
       <h2>{props.name}</h2>
       <p>#{props.id}</p>
     </CardHeroes>

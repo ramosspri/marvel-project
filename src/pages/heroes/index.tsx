@@ -1,12 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import api from '../../services/api';
 import type { NextPage } from 'next';
-import {
-  Container,
-  ButtonMore,
-  HeaderTest,
-  ContainerMain,
-} from '../heroes/styles';
+import { Container, ButtonMore, ContainerMain } from '../heroes/styles';
 import Card from '../../components/Card';
 interface ResponseData {
   id: string;
@@ -49,20 +44,13 @@ const Heroes: NextPage = () => {
 
   return (
     <ContainerMain>
-      <HeaderTest></HeaderTest>
       <div className="paodequeijo">
         <Container>
           {characters.map((characters) => {
-            return (
-              <Card
-                key={characters.id}
-                {...characters}
-                thumbnail={characters.thumbnail}
-              />
-            );
+            return <Card key={characters.id} {...characters} />;
           })}
+          <ButtonMore onClick={handleMore}>Load</ButtonMore>
         </Container>
-        <ButtonMore onClick={handleMore}>Load</ButtonMore>
       </div>
     </ContainerMain>
   );

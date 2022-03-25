@@ -4,7 +4,8 @@ export const Container = styled.div`
   display: grid;
   max-width: 98%;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  padding: 20px 0;
 `;
 
 export const ButtonMore = styled.button`
@@ -17,20 +18,12 @@ export const ButtonMore = styled.button`
   font-family: Syne;
   border-radius: 7px;
   transition: all 0.4s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  border: outset 1px var(--gray3);
 
-  :hover {
+  &:hover {
     background: var(--red);
+    border: outset 1px var(--red-marvel);
   }
-`;
-
-export const HeaderTest = styled.div`
-  width: 260px;
-  height: 100vh;
-  background: yellow;
 `;
 
 export const ContainerMain = styled.main`
