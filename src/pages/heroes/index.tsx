@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import api from '../../services/api';
 import type { NextPage } from 'next';
-import Image from 'next/image';
-import { Container, CardList, Card } from '../heroes/styles';
-import GlobalStyles from '../../styles/GlobalStyles';
-
+import Card from '../../components/Card';
+import { ContainerMain, Container, ButtonMore } from './styles';
 interface ResponseData {
   id: string;
   name: string;
@@ -27,26 +25,34 @@ const Heroes: NextPage = () => {
         setCharacters(response.data.data.results);
       })
       .catch((err) => console.log(err));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleMore = useCallback(async () => {
+    try {
+      const offset = characters.length;
+      const response = await api.get(`characters`, {
+        params: {
+          offset,
+        },
+      });
+
+      setCharacters([...characters, ...response.data.data.results]);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [characters]);
+
   return (
-    <>
-      <GlobalStyles />
-      <Container>
-        <CardList>
+    <ContainerMain>
+      <div className="paodequeijo">
+        <Container>
           {characters.map((characters) => {
-            return (
-              <Card key={characters.id}>
-                <div id="img" />
-                <h2>{characters.name}</h2>
-                <p>#{characters.id}</p>
-              </Card>
-            );
+            return <Card key={characters.id} {...characters} />;
           })}
-        </CardList>
-      </Container>
-    </>
+          <ButtonMore onClick={handleMore}>Load</ButtonMore>
+        </Container>
+      </div>
+    </ContainerMain>
   );
 };
 

@@ -1,41 +1,42 @@
 import styled from 'styled-components';
 
-interface ThumbnailData {
-  thumbnail: {
-    path: string;
-    extension: string;
-  };
-}
-
-export const Container = styled.main`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
+export const Container = styled.div`
+  display: grid;
+  max-width: 98%;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  padding: 20px 0;
 `;
 
-export const CardList = styled.div``;
-
-export const Card = styled.div`
+export const ButtonMore = styled.button`
   background: var(--gray2);
-  height: 150px;
-  width: 150px;
-  margin: 10px;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 2px 2px 10px 1 rgba(0, 0, 0, 0.3);
+  height: 30px;
+  width: 100px;
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.4);
+  color: var(--gray3);
+  font-size: small;
+  font-family: Syne;
+  border-radius: 7px;
+  transition: all 0.4s;
+  border: outset 1px var(--gray3);
 
-  h2 {
-    padding: 5px;
-    text-align: center;
-    font-size: medium;
-    color: var(--white2);
+  &:hover {
+    background: var(--red);
+    border: outset 1px var(--red-marvel);
   }
+`;
 
-  p {
-    padding: 5px;
-    text-align: center;
-    font-size: small;
-    color: var(--white2);
+export const ContainerMain = styled.main`
+  max-width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+
+  .paodequeijo {
+    display: flex;
+    flex-direction: column;
+    width: 96vw;
   }
 `;
