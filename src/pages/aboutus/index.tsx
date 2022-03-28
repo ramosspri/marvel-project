@@ -1,11 +1,16 @@
 import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import apiGithub from '../../services/api_git';
+import { Container, DivInfos, DivLinks, Img, Link, Name } from './styles';
+import { GoMarkGithub } from 'react-icons/go';
+import { AiFillLinkedin } from 'react-icons/ai';
 
 interface ResponseData {
   id: string;
   name: string;
   avatar_url: string;
+  linkedin: string;
+  github: string;
 }
 
 const AboutUs: NextPage = () => {
@@ -21,6 +26,8 @@ const AboutUs: NextPage = () => {
             id: response.data.id,
             name: response.data.name,
             avatar_url: response.data.avatar_url,
+            linkedin: 'https://www.linkedin.com/in/yan-stivaletti/',
+            github: 'https://github.com/yanstivaletti',
           },
         ])
       )
@@ -39,6 +46,8 @@ const AboutUs: NextPage = () => {
             id: response.data.id,
             name: response.data.name,
             avatar_url: response.data.avatar_url,
+            linkedin: 'https://www.linkedin.com/in/ramosspri/',
+            github: 'https://github.com/yanstivaletti',
           },
         ])
       )
@@ -47,18 +56,25 @@ const AboutUs: NextPage = () => {
       });
   }, [users.length === 0]);
 
-  const handleTest = () => {
-    console.log(users);
-  };
-
   return (
-    <div>
-      <p>Hello World</p>
-      {/* <button onClick={handleTest}>Teste</button> */}
+    <Container>
       {users?.map((users) => {
-        return <p key={users.id}>{users.name}</p>;
+        return (
+          <DivInfos key={users?.id}>
+            <Img src={users?.avatar_url} />
+            <Name>{users?.name}</Name>
+            <DivLinks>
+              <Link href={users?.github}>
+                <GoMarkGithub />
+              </Link>
+              <Link href={users?.linkedin}>
+                <AiFillLinkedin />
+              </Link>
+            </DivLinks>
+          </DivInfos>
+        );
       })}
-    </div>
+    </Container>
   );
 };
 

@@ -4,14 +4,17 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  position: absolute;
 `;
 
 export const DivInfos = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 7rem;
   gap: 30px;
+  padding: 4rem;
 `;
 export const Img = styled.img`
   display: flex;
