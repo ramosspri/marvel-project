@@ -3,6 +3,7 @@ import api from '../../services/api';
 import type { NextPage } from 'next';
 import Card from '../../components/Card';
 import { ContainerMain, Container, ButtonMore } from './styles';
+import Sidebar from '../../components/Sidebar';
 interface ResponseData {
   id: string;
   name: string;
@@ -44,6 +45,7 @@ const Heroes: NextPage = () => {
 
   return (
     <ContainerMain>
+      <Sidebar />
       <div className="paodequeijo">
         <Container>
           {characters.map((characters) => {
