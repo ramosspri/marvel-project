@@ -3,10 +3,17 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: grid;
   max-width: 98%;
+  max-height: 95%;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
-  padding: 20px 0;
+  padding: 20px 0 0 0;
   padding-left: 150px;
+
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const ButtonMore = styled.button`
@@ -27,18 +34,27 @@ export const ButtonMore = styled.button`
   }
 `;
 
-export const ContainerMain = styled.main`
+export const ContainerWidth = styled.div`
   max-width: 100vw;
-  height: 100vh;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+export const DivCards = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 20px;
   justify-content: center;
-  /* overflow-y: scroll; */
+`;
 
-  .paodequeijo {
-    display: flex;
-    flex-direction: column;
-    width: 96vw;
-  }
+export const ContainerHeight = styled.div`
+  background-color: red;
+  max-width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;

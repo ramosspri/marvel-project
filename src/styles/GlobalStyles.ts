@@ -10,6 +10,7 @@ export default createGlobalStyle`
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      max-height: 100vh;
   }
 
   @media (max-width: 1080px) {

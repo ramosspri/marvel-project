@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const ContainerMain = styled.div`
+export const ContainerWidth = styled.div`
   background-color: var(--gray2);
   width: 130px;
-  height: 90vh;
+  height: 88.5vh;
   position: fixed;
   left: 0;
   box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
