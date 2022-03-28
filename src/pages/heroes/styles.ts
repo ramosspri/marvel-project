@@ -4,8 +4,9 @@ export const Container = styled.div`
   display: grid;
   max-width: 98%;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
   padding: 20px 0;
+  padding-left: 150px;
 `;
 
 export const ButtonMore = styled.button`
@@ -33,6 +34,7 @@ export const ContainerMain = styled.main`
   flex-direction: row;
   gap: 20px;
   justify-content: center;
+  /* overflow-y: scroll; */
 
   .paodequeijo {
     display: flex;
