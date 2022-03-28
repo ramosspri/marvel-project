@@ -2,8 +2,9 @@ import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import apiGithub from '../../services/api_git';
 import { Container, DivInfos, DivLinks, Img, Link, Name } from './styles';
-import { GoMarkGithub } from 'react-icons/go';
-import { AiFillLinkedin } from 'react-icons/ai';
+import { Icon } from '@iconify/react';
+import githubFill from '@iconify/icons-akar-icons/github-fill';
+import linkedinBoxFill from '@iconify/icons-akar-icons/linkedin-box-fill';
 
 interface ResponseData {
   id: string;
@@ -47,7 +48,7 @@ const AboutUs: NextPage = () => {
             name: response.data.name,
             avatar_url: response.data.avatar_url,
             linkedin: 'https://www.linkedin.com/in/ramosspri/',
-            github: 'https://github.com/yanstivaletti',
+            github: 'https://github.com/ramosspri',
           },
         ])
       )
@@ -65,10 +66,10 @@ const AboutUs: NextPage = () => {
             <Name>{users?.name}</Name>
             <DivLinks>
               <Link href={users?.github}>
-                <GoMarkGithub />
+                <Icon icon={githubFill} />
               </Link>
               <Link href={users?.linkedin}>
-                <AiFillLinkedin />
+                <Icon icon={linkedinBoxFill} />
               </Link>
             </DivLinks>
           </DivInfos>
