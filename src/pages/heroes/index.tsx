@@ -8,6 +8,7 @@ import {
   Container,
   DivCards,
   ButtonMore,
+  DivAlignButton,
 } from './styles';
 import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
@@ -51,20 +52,24 @@ const Heroes: NextPage = () => {
   }, [characters]);
 
   return (
-    <ContainerHeight>
-      <ContainerWidth>
-        <Sidebar />
-        <DivCards>
-          <Container>
-            {characters.map((characters) => {
-              return <Card key={characters.id} {...characters} />;
-            })}
-            <ButtonMore onClick={handleMore}>Load</ButtonMore>
-          </Container>
-        </DivCards>
-      </ContainerWidth>
-      <Footer />
-    </ContainerHeight>
+    <>
+      <ContainerHeight>
+        <ContainerWidth>
+          <Sidebar />
+          <DivCards>
+            <Container>
+              {characters.map((characters) => {
+                return <Card key={characters.id} {...characters} />;
+              })}
+            </Container>
+          </DivCards>
+        </ContainerWidth>
+        <DivAlignButton>
+          <ButtonMore onClick={handleMore}>Load</ButtonMore>
+        </DivAlignButton>
+        <Footer />
+      </ContainerHeight>
+    </>
   );
 };
 
