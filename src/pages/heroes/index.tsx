@@ -2,8 +2,16 @@ import React, { useCallback, useEffect, useState } from 'react';
 import api from '../../services/api';
 import type { NextPage } from 'next';
 import Card from '../../components/Card';
-import { ContainerMain, Container, ButtonMore } from './styles';
+import {
+  ContainerHeight,
+  ContainerWidth,
+  Container,
+  DivCards,
+  ButtonMore,
+  DivAlignButton,
+} from './styles';
 import Sidebar from '../../components/Sidebar';
+import Footer from '../../components/Footer';
 interface ResponseData {
   id: string;
   name: string;
@@ -44,17 +52,24 @@ const Heroes: NextPage = () => {
   }, [characters]);
 
   return (
-    <ContainerMain>
-      <Sidebar />
-      <div className="paodequeijo">
-        <Container>
-          {characters.map((characters) => {
-            return <Card key={characters.id} {...characters} />;
-          })}
+    <>
+      <ContainerHeight>
+        <ContainerWidth>
+          <Sidebar />
+          <DivCards>
+            <Container>
+              {characters.map((characters) => {
+                return <Card key={characters.id} {...characters} />;
+              })}
+            </Container>
+          </DivCards>
+        </ContainerWidth>
+        <DivAlignButton>
           <ButtonMore onClick={handleMore}>Load</ButtonMore>
-        </Container>
-      </div>
-    </ContainerMain>
+        </DivAlignButton>
+        <Footer />
+      </ContainerHeight>
+    </>
   );
 };
 
