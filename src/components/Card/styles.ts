@@ -29,6 +29,18 @@ export const CardHeroes = styled.div`
     font-size: x-small;
     color: var(--red-marvel);
   }
+
+  h1 {
+    text-align: center;
+    font-size: x-large;
+    color: var(--gray3);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+  }
+
+  & img {
+    border-radius: 40px;
+  }
 `;
 
 export const DivImg = styled.div`

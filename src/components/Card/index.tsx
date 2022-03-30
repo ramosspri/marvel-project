@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
-import { CardHeroes, DivImg } from '../Card/styles';
+import React, { useState } from 'react';
+import { CardHeroes, DivImg } from './styles';
+import Modal from '../Modal';
 
 interface ResponseData {
   id: string;
@@ -15,8 +16,26 @@ interface ResponseData {
 }
 
 const Card = (props: ResponseData) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
   return (
-    <CardHeroes>
+    <CardHeroes
+      onClick={(e) => {
+        setIsModalVisible(true);
+      }}
+    >
+      {isModalVisible ? (
+        <Modal onClose={() => setIsModalVisible(false)}>
+          <img
+            src={props.thumbnail.path + '.' + props.thumbnail.extension}
+            alt="Heroes pictures"
+            width={290}
+            height={290}
+            style={{ padding: '20px' }}
+          />
+          <h1>{props.name}</h1>
+          <p>#{props.id}</p>
+        </Modal>
+      ) : null}
       <DivImg>
         <img
           src={props.thumbnail.path + '.' + props.thumbnail.extension}
