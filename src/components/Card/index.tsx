@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import { Box, Modal } from '@material-ui/core';
 import React, { useState } from 'react';
 import { CardHeroes, DivImg } from './styles';
-import Modal from '../Modal';
 
 interface ResponseData {
   id: string;
@@ -16,15 +16,44 @@ interface ResponseData {
 }
 
 const Card = (props: ResponseData) => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <CardHeroes
-      onClick={(e) => {
-        setIsModalVisible(true);
-      }}
-    >
-      {isModalVisible ? (
-        <Modal onClose={() => setIsModalVisible(false)}>
+    <>
+      <CardHeroes onClick={handleOpen}>
+        <DivImg>
+          <img
+            src={props.thumbnail.path + '.' + props.thumbnail.extension}
+            alt="Heroes pictures"
+            width={80}
+            height={80}
+          />
+        </DivImg>
+        <h2>{props.name}</h2>
+        <p>#{props.id}</p>
+      </CardHeroes>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+      >
+        <Box
+          css={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          sx={{ width: '100vw', height: '100vh', color: 'white' }}
+        >
           <img
             src={props.thumbnail.path + '.' + props.thumbnail.extension}
             alt="Heroes pictures"
@@ -34,19 +63,9 @@ const Card = (props: ResponseData) => {
           />
           <h1>{props.name}</h1>
           <p>#{props.id}</p>
-        </Modal>
-      ) : null}
-      <DivImg>
-        <img
-          src={props.thumbnail.path + '.' + props.thumbnail.extension}
-          alt="Heroes pictures"
-          width={80}
-          height={80}
-        />
-      </DivImg>
-      <h2>{props.name}</h2>
-      <p>#{props.id}</p>
-    </CardHeroes>
+        </Box>
+      </Modal>
+    </>
   );
 };
 
