@@ -20,7 +20,7 @@ function Sidebar() {
         <DivIcons>
           <Icon icon="bx:home-alt-2" color="var(--gray3)" height="17" />
         </DivIcons>
-        <Link href="/home">HOME</Link>
+        <Link href="/">HOME</Link>
       </DivMenu>
       <DivMenu>
         <DivIcons>
@@ -32,7 +32,7 @@ function Sidebar() {
         <DivIcons>
           <Icon icon="charm:info" color="var(--gray3)" height="17" />
         </DivIcons>
-        <Link href="/aboutUs">ABOUT US</Link>
+        <Link href="/aboutus">ABOUT US</Link>
       </DivMenu>
     </ContainerWidth>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { NextPage } from 'next';
+import Link from 'next/link';
 import {
   Container,
   HomeButton,
@@ -23,7 +24,9 @@ const Home: NextPage = () => {
           <MarvelLogo src="/images/Marvel_Logo.svg" alt="Logo Marvel" />
           <Title>HEROES LIST</Title>
           <Subtitle>Welcome to our Multiverse of Madness</Subtitle>
-          <HomeButton>ASSEMBLE</HomeButton>
+          <HomeButton>
+            <Link href="/heroes">ASSEMBLE</Link>
+          </HomeButton>
         </DivAlign>
       </DivInfos>
     </Container>
