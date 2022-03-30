@@ -8,6 +8,7 @@ import linkedinBoxFill from '@iconify/icons-akar-icons/linkedin-box-fill';
 import Header from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
+import styled from 'styled-components';
 
 interface ResponseData {
   id: string;
@@ -61,30 +62,54 @@ const AboutUs: NextPage = () => {
   }, [users.length === 0]);
 
   return (
-    <>
-      <Header title="About Us" />
-      <Sidebar />
-      <Container>
-        {users?.map((users) => {
-          return (
-            <DivInfos key={users?.id}>
-              <Img src={users?.avatar_url} />
-              <Name>{users?.name}</Name>
-              <DivLinks>
-                <Link href={users?.github}>
-                  <Icon icon={githubFill} />
-                </Link>
-                <Link href={users?.linkedin}>
-                  <Icon icon={linkedinBoxFill} />
-                </Link>
-              </DivLinks>
-            </DivInfos>
-          );
-        })}
-      </Container>
+    <Container0>
+      <Container1>
+        <Sidebar />
+        <Container2>
+          <Header title="About Us" />
+          <Container>
+            {users?.map((users) => {
+              return (
+                <DivInfos key={users?.id}>
+                  <Img src={users?.avatar_url} />
+                  <Name>{users?.name}</Name>
+                  <DivLinks>
+                    <Link href={users?.github}>
+                      <Icon icon={githubFill} />
+                    </Link>
+                    <Link href={users?.linkedin}>
+                      <Icon icon={linkedinBoxFill} />
+                    </Link>
+                  </DivLinks>
+                </DivInfos>
+              );
+            })}
+          </Container>
+        </Container2>
+      </Container1>
       <Footer />
-    </>
+    </Container0>
   );
 };
+
+const Container0 = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Container1 = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  height: 90.8vh;
+`;
+
+const Container2 = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  max-width: 100%;
+  max-height: 100%;
+`;
 
 export default AboutUs;

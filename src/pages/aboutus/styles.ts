@@ -5,8 +5,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 100vw;
-  position: absolute;
+  width: 100%;
 `;
 
 export const DivInfos = styled.div`

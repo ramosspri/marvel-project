@@ -59,11 +59,13 @@ const Heroes: NextPage = () => {
           <Header title="Super Heroes" />
           <Sidebar />
           <DivCards>
+            {/* <ContainerImaginario> */}
             <Container>
               {characters.map((characters) => {
                 return <Card key={characters.id} {...characters} />;
               })}
             </Container>
+            {/* </ContainerImaginario> */}
           </DivCards>
         </ContainerWidth>
         <DivAlignButton>
