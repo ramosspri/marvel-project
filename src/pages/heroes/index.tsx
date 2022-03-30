@@ -12,6 +12,7 @@ import {
 } from './styles';
 import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 interface ResponseData {
   id: string;
   name: string;
@@ -55,6 +56,7 @@ const Heroes: NextPage = () => {
     <>
       <ContainerHeight>
         <ContainerWidth>
+          <Header title="Super Heroes" />
           <Sidebar />
           <DivCards>
             <Container>
