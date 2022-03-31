@@ -9,7 +9,7 @@ export const DivFooter = styled.div`
   background-color: var(--gray2);
   font-family: 'Syne';
   color: var(--white1);
-  height: 9.11vh;
+  height: 9.2vh;
   margin: 0 auto -2rem;
   padding: 20px;
 `;

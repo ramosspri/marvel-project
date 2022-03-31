@@ -5,6 +5,10 @@ import { Container, DivInfos, DivLinks, Img, Link, Name } from './styles';
 import { Icon } from '@iconify/react';
 import githubFill from '@iconify/icons-akar-icons/github-fill';
 import linkedinBoxFill from '@iconify/icons-akar-icons/linkedin-box-fill';
+import Header from '../../components/Header';
+import Sidebar from '../../components/Sidebar';
+import Footer from '../../components/Footer';
+import styled from 'styled-components';
 
 interface ResponseData {
   id: string;
@@ -58,25 +62,54 @@ const AboutUs: NextPage = () => {
   }, [users.length === 0]);
 
   return (
-    <Container>
-      {users?.map((users) => {
-        return (
-          <DivInfos key={users?.id}>
-            <Img src={users?.avatar_url} />
-            <Name>{users?.name}</Name>
-            <DivLinks>
-              <Link href={users?.github}>
-                <Icon icon={githubFill} />
-              </Link>
-              <Link href={users?.linkedin}>
-                <Icon icon={linkedinBoxFill} />
-              </Link>
-            </DivLinks>
-          </DivInfos>
-        );
-      })}
-    </Container>
+    <WrapFooter>
+      <WrapSidebar>
+        <Sidebar />
+        <WrapSideCont>
+          <Header title="About Us" />
+          <Container>
+            {users?.map((users) => {
+              return (
+                <DivInfos key={users?.id}>
+                  <Img src={users?.avatar_url} />
+                  <Name>{users?.name}</Name>
+                  <DivLinks>
+                    <Link href={users?.github}>
+                      <Icon icon={githubFill} />
+                    </Link>
+                    <Link href={users?.linkedin}>
+                      <Icon icon={linkedinBoxFill} />
+                    </Link>
+                  </DivLinks>
+                </DivInfos>
+              );
+            })}
+          </Container>
+        </WrapSideCont>
+      </WrapSidebar>
+      <Footer />
+    </WrapFooter>
   );
 };
+
+const WrapFooter = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const WrapSidebar = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  height: 90.8vh;
+`;
+
+const WrapSideCont = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  max-width: 100%;
+  max-height: 100%;
+`;
 
 export default AboutUs;

@@ -5,8 +5,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 100vw;
-  position: absolute;
+  width: 100%;
 `;
 
 export const DivInfos = styled.div`
@@ -15,6 +14,7 @@ export const DivInfos = styled.div`
   align-items: center;
   gap: 30px;
   padding: 4rem;
+  width: 100vw;
 `;
 export const Img = styled.img`
   display: flex;

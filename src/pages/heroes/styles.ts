@@ -51,11 +51,12 @@ export const ContainerWidth = styled.div`
 `;
 
 export const DivCards = styled.div`
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   gap: 1.25rem;
   justify-content: center;
+  height: 90%;
 `;
 
 export const ContainerHeight = styled.div`
