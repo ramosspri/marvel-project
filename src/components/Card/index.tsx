@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Modal } from '@material-ui/core';
 import React, { useState } from 'react';
-import { CardHeroes, DivImg, Line } from './styles';
+import { CardHeroes, Details, DivImg, Line, MyDiv } from './styles';
 import { Icon } from '@iconify/react';
 
 interface ResponseData {
@@ -9,6 +9,12 @@ interface ResponseData {
   name: string;
   comics: {
     id?: string;
+    items: Array<{ name: string; resourceURI: string }>;
+  };
+  events: {
+    items: Array<{ name: string; resourceURI: string }>;
+  };
+  stories: {
     items: Array<{ name: string; resourceURI: string }>;
   };
   description: string;
@@ -70,8 +76,8 @@ const Card = (props: ResponseData) => {
           <img
             src={props.thumbnail.path + '.' + props.thumbnail.extension}
             alt="Heroes pictures"
-            width={270}
-            height={270}
+            width="40%"
+            height="80%"
             style={{
               borderRadius: '50%',
             }}
@@ -80,63 +86,129 @@ const Card = (props: ResponseData) => {
           <div
             style={{
               display: 'flex',
-              flexDirection: 'row',
-              padding: '10px 0',
+              flexDirection: 'column',
               alignItems: 'start',
-              justifyContent: 'center',
+              justifyContent: 'flex-start',
               height: '100%',
+              maxWidth: '50%',
             }}
           >
             <h1
               style={{
                 color: '#F5F5F5',
                 fontSize: '22px',
+                padding: '15px 0',
                 fontFamily: 'Syne',
+                alignSelf: 'center',
               }}
             >
               {props.name}
             </h1>
-            <details
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                height: '95%',
-                width: '20vw',
-                overflow: 'scroll',
-              }}
-            >
+            <Details>
               <summary
                 style={{
                   color: '#F5F5F5',
                   fontFamily: 'Syne',
                   fontSize: '16px',
+                  padding: '0 0 6px 0',
                 }}
               >
                 Comics
               </summary>
-              {props.comics.items.map((data) => {
-                return (
-                  <p
-                    key={data.name}
-                    style={{
-                      color: '#F5F5F5',
-                      fontFamily: 'Syne',
-                      fontSize: '14px',
-                    }}
-                  >
-                    <Icon
-                      icon="fluent:heart-12-filled"
-                      color="#bf0615"
-                      width="15"
-                      inline={true}
-                      style={{ padding: '0 2px', opacity: '70%' }}
-                    />
-                    {data.name}
-                  </p>
-                );
-              })}
-            </details>
+              <MyDiv>
+                {props.comics.items.map((data) => {
+                  return (
+                    <p
+                      key={data.name}
+                      style={{
+                        color: '#F5F5F5',
+                        fontFamily: 'Syne',
+                        fontSize: '14px',
+                      }}
+                    >
+                      <Icon
+                        icon="fluent:heart-12-filled"
+                        color="#bf0615"
+                        width="15"
+                        inline={true}
+                        style={{ padding: '0 2px', opacity: '70%' }}
+                      />
+                      {data.name}
+                    </p>
+                  );
+                })}
+              </MyDiv>
+            </Details>
+            <Details>
+              <summary
+                style={{
+                  color: '#F5F5F5',
+                  fontFamily: 'Syne',
+                  fontSize: '16px',
+                  padding: '0 0 6px 0',
+                }}
+              >
+                Stories
+              </summary>
+              <MyDiv>
+                {props.stories.items.map((data) => {
+                  return (
+                    <p
+                      key={data.name}
+                      style={{
+                        color: '#F5F5F5',
+                        fontFamily: 'Syne',
+                        fontSize: '14px',
+                      }}
+                    >
+                      <Icon
+                        icon="fluent:heart-12-filled"
+                        color="#bf0615"
+                        width="15"
+                        inline={true}
+                        style={{ padding: '0 2px', opacity: '70%' }}
+                      />
+                      {data.name}
+                    </p>
+                  );
+                })}
+              </MyDiv>
+            </Details>
+            <Details>
+              <summary
+                style={{
+                  color: '#F5F5F5',
+                  fontFamily: 'Syne',
+                  fontSize: '16px',
+                  padding: '0 0 6px 0',
+                }}
+              >
+                Events
+              </summary>
+              <MyDiv>
+                {props.events.items.map((data) => {
+                  return (
+                    <p
+                      key={data.name}
+                      style={{
+                        color: '#F5F5F5',
+                        fontFamily: 'Syne',
+                        fontSize: '14px',
+                      }}
+                    >
+                      <Icon
+                        icon="fluent:heart-12-filled"
+                        color="#bf0615"
+                        width="15"
+                        inline={true}
+                        style={{ padding: '0 2px', opacity: '70%' }}
+                      />
+                      {data.name}
+                    </p>
+                  );
+                })}
+              </MyDiv>
+            </Details>
           </div>
         </Box>
       </Modal>

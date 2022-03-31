@@ -20,6 +20,12 @@ interface ResponseData {
     id?: string;
     items: Array<{ name: string; resourceURI: string }>;
   };
+  events: {
+    items: Array<{ name: string; resourceURI: string }>;
+  };
+  stories: {
+    items: Array<{ name: string; resourceURI: string }>;
+  };
   description: string;
   thumbnail: {
     path: string;

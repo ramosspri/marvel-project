@@ -62,3 +62,32 @@ export const Line = styled.hr`
   transform: 0px;
   -webkit-transform: rotate(180deg);
 `;
+
+export const Details = styled.details`
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  flex-wrap: wrap;
+  height: 95%;
+  width: 25vw;
+
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const MyDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 70%;
+  gap: 10px;
+
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
