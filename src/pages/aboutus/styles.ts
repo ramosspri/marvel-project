@@ -14,6 +14,7 @@ export const DivInfos = styled.div`
   align-items: center;
   gap: 30px;
   padding: 4rem;
+  width: 100vw;
 `;
 export const Img = styled.img`
   display: flex;

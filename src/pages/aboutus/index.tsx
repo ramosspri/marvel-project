@@ -62,10 +62,10 @@ const AboutUs: NextPage = () => {
   }, [users.length === 0]);
 
   return (
-    <Container0>
-      <Container1>
+    <WrapFooter>
+      <WrapSidebar>
         <Sidebar />
-        <Container2>
+        <WrapSideCont>
           <Header title="About Us" />
           <Container>
             {users?.map((users) => {
@@ -85,26 +85,26 @@ const AboutUs: NextPage = () => {
               );
             })}
           </Container>
-        </Container2>
-      </Container1>
+        </WrapSideCont>
+      </WrapSidebar>
       <Footer />
-    </Container0>
+    </WrapFooter>
   );
 };
 
-const Container0 = styled.div`
+const WrapFooter = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const Container1 = styled.div`
+const WrapSidebar = styled.div`
   display: flex;
   flex-direction: row;
 
   height: 90.8vh;
 `;
 
-const Container2 = styled.div`
+const WrapSideCont = styled.div`
   display: flex;
   flex-direction: column;
 
