@@ -71,7 +71,6 @@ const Heroes: NextPage = () => {
           <ButtonMore onClick={handleMore}>Load</ButtonMore>
         </DivAlignButton>
         <Footer />
-        <button onClick={() => console.log(characters)}>Visibilidade</button>
       </ContainerHeight>
     </>
   );

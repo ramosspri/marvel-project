@@ -21,7 +21,6 @@ export const CardHeroes = styled.div`
     font-size: small;
     color: var(--gray3);
     font-family: 'Syne', sans-serif;
-    /* font-weight: 500; */
   }
 
   p {
@@ -57,7 +56,7 @@ export const Line = styled.hr`
   background-color: var(--red-marvel);
   border: none;
   border-radius: 20px;
-  opacity: 40%;
+  opacity: 50%;
   height: 80%;
   width: 2px;
   transform: 0px;

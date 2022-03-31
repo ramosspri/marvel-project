@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Modal } from '@material-ui/core';
-import { yellow } from '@material-ui/core/colors';
 import React, { useState } from 'react';
 import { CardHeroes, DivImg, Line } from './styles';
+import { Icon } from '@iconify/react';
 
 interface ResponseData {
   id: string;
@@ -57,7 +57,7 @@ const Card = (props: ResponseData) => {
           css={{
             display: 'flex',
             flexDirection: 'row',
-            justifyContent: 'space-evenly',
+            justifyContent: 'space-around',
             alignItems: 'center',
             bgcolor: '#262626',
             width: '60%',
@@ -79,8 +79,9 @@ const Card = (props: ResponseData) => {
           <Line />
           <div
             style={{
-              backgroundColor: 'yellow',
               display: 'flex',
+              flexDirection: 'row',
+              padding: '10px 0',
               alignItems: 'start',
               justifyContent: 'center',
               height: '100%',
@@ -88,18 +89,52 @@ const Card = (props: ResponseData) => {
           >
             <h1
               style={{
-                color: '#262626',
+                color: '#F5F5F5',
                 fontSize: '22px',
                 fontFamily: 'Syne',
               }}
             >
               {props.name}
             </h1>
-            <p>{props.comics.id}</p>
-            <details>
-              <summary>Comics</summary>
+            <details
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                height: '95%',
+                width: '20vw',
+                overflow: 'scroll',
+              }}
+            >
+              <summary
+                style={{
+                  color: '#F5F5F5',
+                  fontFamily: 'Syne',
+                  fontSize: '16px',
+                }}
+              >
+                Comics
+              </summary>
               {props.comics.items.map((data) => {
-                return <p key={data.name}>* {data.name}</p>;
+                return (
+                  <p
+                    key={data.name}
+                    style={{
+                      color: '#F5F5F5',
+                      fontFamily: 'Syne',
+                      fontSize: '14px',
+                    }}
+                  >
+                    <Icon
+                      icon="fluent:heart-12-filled"
+                      color="#bf0615"
+                      width="15"
+                      inline={true}
+                      style={{ padding: '0 2px', opacity: '70%' }}
+                    />
+                    {data.name}
+                  </p>
+                );
               })}
             </details>
           </div>
