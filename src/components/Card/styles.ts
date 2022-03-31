@@ -21,13 +21,24 @@ export const CardHeroes = styled.div`
     font-size: small;
     color: var(--gray3);
     font-family: 'Syne', sans-serif;
-    /* font-weight: 500; */
   }
 
   p {
     text-align: center;
     font-size: x-small;
     color: var(--red-marvel);
+  }
+
+  h1 {
+    text-align: center;
+    font-size: x-large;
+    color: var(--gray3);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+  }
+
+  & img {
+    border-radius: 40px;
   }
 `;
 
@@ -38,5 +49,45 @@ export const DivImg = styled.div`
 
   > img {
     border-radius: 50%;
+  }
+`;
+
+export const Line = styled.hr`
+  background-color: var(--red-marvel);
+  border: none;
+  border-radius: 20px;
+  opacity: 50%;
+  height: 80%;
+  width: 2px;
+  transform: 0px;
+  -webkit-transform: rotate(180deg);
+`;
+
+export const Details = styled.details`
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  flex-wrap: wrap;
+  height: 95%;
+  width: 25vw;
+
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const MyDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 70%;
+  gap: 10px;
+
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 `;

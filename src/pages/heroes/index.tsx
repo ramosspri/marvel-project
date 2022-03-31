@@ -17,8 +17,16 @@ import styled from 'styled-components';
 interface ResponseData {
   id: string;
   name: string;
-  stories: string;
-  comics: string;
+  comics: {
+    id?: string;
+    items: Array<{ name: string; resourceURI: string }>;
+  };
+  events: {
+    items: Array<{ name: string; resourceURI: string }>;
+  };
+  stories: {
+    items: Array<{ name: string; resourceURI: string }>;
+  };
   description: string;
   thumbnail: {
     path: string;
