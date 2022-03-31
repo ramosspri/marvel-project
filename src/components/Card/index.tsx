@@ -7,13 +7,9 @@ import { CardHeroes, DivImg, Line } from './styles';
 interface ResponseData {
   id: string;
   name: string;
-  stories: {
-    id: string;
-    title: string;
-  };
   comics: {
-    id: string;
-    title: string;
+    id?: string;
+    items: Array<{ name: string; resourceURI: string }>;
   };
   description: string;
   thumbnail: {
@@ -100,7 +96,12 @@ const Card = (props: ResponseData) => {
               {props.name}
             </h1>
             <p>{props.comics.id}</p>
-            <p>{props.comics.title}</p>
+            <details>
+              <summary>Comics</summary>
+              {props.comics.items.map((data) => {
+                return <p key={data.name}>* {data.name}</p>;
+              })}
+            </details>
           </div>
         </Box>
       </Modal>

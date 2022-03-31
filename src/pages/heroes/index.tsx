@@ -12,11 +12,14 @@ import {
 } from './styles';
 import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
+
 interface ResponseData {
   id: string;
   name: string;
-  stories: string;
-  comics: string;
+  comics: {
+    id?: string;
+    items: Array<{ name: string; resourceURI: string }>;
+  };
   description: string;
   thumbnail: {
     path: string;
@@ -68,6 +71,7 @@ const Heroes: NextPage = () => {
           <ButtonMore onClick={handleMore}>Load</ButtonMore>
         </DivAlignButton>
         <Footer />
+        <button onClick={() => console.log(characters)}>Visibilidade</button>
       </ContainerHeight>
     </>
   );
