@@ -52,3 +52,14 @@ export const DivImg = styled.div`
     border-radius: 50%;
   }
 `;
+
+export const Line = styled.hr`
+  background-color: var(--red-marvel);
+  border: none;
+  border-radius: 20px;
+  opacity: 40%;
+  height: 80%;
+  width: 2px;
+  transform: 0px;
+  -webkit-transform: rotate(180deg);
+`;
