@@ -5,7 +5,8 @@ export const DivHeader = styled.div`
   background-color: var(--gray1);
   font-family: 'Syne';
   color: var(--white1);
-  min-height: 100%;
+  max-height: 10vh;
+  width: 100%;
   margin-bottom: 0;
   padding: 20px;
   align-items: center;
@@ -16,6 +17,7 @@ export const Info = styled.div`
   color: var(--white1);
   font-size: 2.5rem;
   padding-left: 130px;
+  width: max-content;
 `;
 
 export const Bar = styled.div`

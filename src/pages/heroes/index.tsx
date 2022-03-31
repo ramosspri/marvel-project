@@ -12,6 +12,8 @@ import {
 } from './styles';
 import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import styled from 'styled-components';
 interface ResponseData {
   id: string;
   name: string;
@@ -55,14 +57,20 @@ const Heroes: NextPage = () => {
     <>
       <ContainerHeight>
         <ContainerWidth>
-          <Sidebar />
-          <DivCards>
-            <Container>
-              {characters.map((characters) => {
-                return <Card key={characters.id} {...characters} />;
-              })}
-            </Container>
-          </DivCards>
+          <HeaderWidth>
+            <Sidebar />
+            <Header title="Super Heroes" />
+
+            <DivCards>
+              <LockContainer>
+                <Container>
+                  {characters.map((characters) => {
+                    return <Card key={characters.id} {...characters} />;
+                  })}
+                </Container>
+              </LockContainer>
+            </DivCards>
+          </HeaderWidth>
         </ContainerWidth>
         <DivAlignButton>
           <ButtonMore onClick={handleMore}>Load</ButtonMore>
@@ -72,5 +80,13 @@ const Heroes: NextPage = () => {
     </>
   );
 };
-
+const LockContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 200vh;
+`;
+const HeaderWidth = styled.div`
+  width: 100vw;
+`;
 export default Heroes;
